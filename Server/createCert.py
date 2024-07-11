@@ -54,12 +54,3 @@ def createCertificate(req, issuerCert, issuerKey, serial, notBefore, notAfter, d
                digest     - Digest method to use for signing, default is md5
     Returns:   The signed certificate in an X509 object
     """
-    cert = crypto.X509()
-    cert.set_serial_number(serial)
-    cert.gmtime_adj_notBefore(notBefore)
-    cert.gmtime_adj_notAfter(notAfter)
-    cert.set_issuer(issuerCert.get_subject())
-    cert.set_subject(req.get_subject())
-    cert.set_pubkey(req.get_pubkey())
-    cert.sign(issuerKey, digest)
-    return cert
