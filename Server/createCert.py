@@ -1,3 +1,5 @@
+#beginning of the code
+
 from OpenSSL import crypto
 
 TYPE_RSA = crypto.TYPE_RSA
